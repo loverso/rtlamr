@@ -1,5 +1,5 @@
 # Site settings
-title: RTLAMR
+title: rtlamr
 email: bemasher@gmail.com
 description: An rtl-sdr receiver for Itron ERT compatible smart meters operating in the 900MHz ISM band.
 
