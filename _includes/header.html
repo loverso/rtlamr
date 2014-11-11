@@ -1,16 +1,16 @@
 <nav class="navbar navbar-default" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="{{ site.baseurl }}/"><strong>{{ site.title }}</strong></a>
+			<a class="navbar-brand" href="{{ site.baseurl }}/index.html"><strong>{{ site.title }}</strong></a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				{% for page_link in site.pages %}
-					{% if page.url == page_link.url %}
-						<li class="active"><a href="{{ site.baseurl }}{{ page_link.url }}"><strong>{{ page_link.title }}</strong></a></li>
-					{% else %}
-						<li><a href="{{ site.baseurl }}{{ page_link.url }}">{{ page_link.title }}</a></li>
-					{% endif %}
+						{% if page.url == page_link.url %}
+							<li class="active"><a href="{{ site.baseurl }}{{ page_link.url }}"><strong>{{ page_link.title }}</strong></a></li>
+						{% else %}
+							<li><a href="{{ site.baseurl }}{{ page_link.url }}">{{ page_link.title }}</a></li>
+						{% endif %}
 				{% endfor %}
 			</ul>
 				

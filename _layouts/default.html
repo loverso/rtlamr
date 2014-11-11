@@ -8,11 +8,13 @@
 
 			{{ content }}
 
+			{% if site.baseurl != '' %}
 			<div class="panel panel-default">
 				<div class="panel-body disqus">
 					{% include disqus.html %}
 				</div>
 			</div>
+			{% endif %}
 		</div>
 	</body>
 </html>
