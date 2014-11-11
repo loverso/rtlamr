@@ -9,7 +9,7 @@
 					{% if page.url == page_link.url %}
 						<li class="active"><a href="{{ site.baseurl }}{{ page_link.url }}"><strong>{{ page_link.title }}</strong></a></li>
 					{% else %}
-						<li><a href="{{ page_link.url }}">{{ page_link.title }}</a></li>
+						<li><a href="{{ site.baseurl }}{{ page_link.url }}">{{ page_link.title }}</a></li>
 					{% endif %}
 				{% endfor %}
 			</ul>
