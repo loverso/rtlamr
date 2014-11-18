@@ -1,6 +1,7 @@
 ---
 layout: page
-title: The Protocol
+title: Protocol
+index: 2
 ---
 
 The ERT protocol consists of several different message structures but we are only concerned with two of them. The Standard Consumption Message (SCM) and the Interval Data Message (IDM).
@@ -30,7 +31,7 @@ The ERT protocol consists of several different message structures but we are onl
 		<tr><td>Encoder Tamper Flags</td><td>2</td><td></td></tr>
 		<tr><td>Consumption</td><td>24</td><td>The current consumption value.</td></tr>
 		<tr><td>Meter ID LSB</td><td>24</td><td>24 least significant bits of the ID.</td></tr>
-		<tr><td>Checksum</td><td>16</td><td>A BCH code with generator polynomial: <katex>p(x) = x^{16} + x^{14} + x^{13} + x^{11} + x^{10} + x^9 + x^8 + x^6 + x^5 + x + 1</katex></td></tr>
+		<tr><td>Checksum</td><td>16</td><td>A BCH code with generator polynomial: $p(x) = x^{16} + x^{14} + x^{13} + x^{11} + x^{10} + x^9 + x^8 + x^6 + x^5 + x + 1$</td></tr>
 	</table>
 </div>
 
