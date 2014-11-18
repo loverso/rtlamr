@@ -11,3 +11,15 @@ body {
 .disqus {
 	margin-top: -10px;
 }
+
+.img-center {
+	text-align: center;
+}
+
+.img-panel {
+	display: inline-block;
+}
+
+.img-panel .panel-footer {
+	text-align: left;
+}
