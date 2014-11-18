@@ -11,10 +11,11 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				{% for page_link in site.pages %}
-						<li {% if page.url == page_link.url %}class="active"{% endif %}>
-							<a href="{{ site.baseurl }}{{ page_link.url }}">
-								<strong>{{ page_link.title }}</strong>
+				{% assign sorted_pages = site.pages | sort:"index" %}
+				{% for node in sorted_pages %}
+						<li {% if page.url == node.url %}class="active"{% endif %}>
+							<a href="{{ site.baseurl }}{{ node.url }}">
+								<strong>{{ node.title }}</strong>
 							</a>
 						</li>
 				{% endfor %}
