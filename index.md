@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Readme
+index: 1
 permalink: /
 ---
 
