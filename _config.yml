@@ -15,4 +15,4 @@ github_username:  bemasher
 google_analytics_id: UA-3438582-3
 repository: https://github.com/bemasher/rtlamr
 
-exclude: src
+exclude: [src,assets/*.bin,assets/*.py]
