@@ -20,17 +20,17 @@ mag = np.abs(iq)
 
 filtered = np.correlate(mag, np.append(np.ones(78), -np.ones(78)))
 
-mag_plot.plot(filtered)
+kernel = np.append(np.ones(78), -np.ones(78))
+mag_plot.step(np.arange(kernel.size), kernel)
 mag_plot.grid(axis='both')
 mag_plot.autoscale(tight=True)
+mag_plot.set_ylim(-1.125, 1.125)
+mag_plot.set_xlim(-5, 78*2 + 5)
+mag_plot.xaxis.set_ticks([0,39, 78, 117, 156])
 
-quantized = np.digitize(filtered, [0])
-
-spec_plot.plot(quantized)
-
+spec_plot.plot(filtered)
 spec_plot.grid(axis='both')
 spec_plot.autoscale(tight=True)
-spec_plot.set_ylim(-0.125, 1.125)
 
 plt.savefig('filter.png', dpi=96, transparent=True, bbox_inches="tight")
 # plt.show()
