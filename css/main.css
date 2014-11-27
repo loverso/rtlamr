@@ -3,6 +3,10 @@ body {
 	padding-bottom: 20px;
 }
 
+p {
+	text-align: justify;
+}
+
 .navbar {
 	margin-bottom: 20px;
 	border-radius: 4px;
@@ -10,10 +14,6 @@ body {
 
 .disqus {
 	margin-top: -10px;
-}
-
-.img-center {
-	text-align: center;
 }
 
 .img-panel {
