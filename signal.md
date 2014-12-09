@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Signal Processing
+redirect_from: "/2014/02/08/innards.html"
 index: 3
 ---
 
