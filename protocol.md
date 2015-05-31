@@ -69,3 +69,29 @@ The ERT protocol consists of several different message structures but we are onl
 		<tr><td>Packet Checksum</td><td>2</td><td></td><td>CRC-16-CCITT of packet starting at Packet Type.</td></tr>
 	</table>
 </div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1 class="panel-title"><strong>R900 Consumption Message</strong></h1>
+	</div>
+	<div class="panel-body">
+		A 116 bit message containing ID, consumption, backflow and leak details.
+	</div>
+	<table class="table table-hover">
+		<tr>
+			<th>Field</th>
+			<th>Length (Bits)</th>
+			<th>Value</th>
+			<th>Description</th>
+		</tr>
+		<tr><td>Preamble</td><td>32</td><td>0x0000E564</td><td></td></tr>
+		<tr><td>ID</td><td>32</td><td></td><td></td></tr>
+		<tr><td>Unkn1</td><td>8</td><td></td><td></td></tr>
+		<tr><td>NoUse</td><td>6</td><td></td><td>Day bins of no use. <a href="https://github.com/bemasher/rtlamr/issues/29#issuecomment-97622287">See issue #29 for more details.</a></td></tr>
+		<tr><td>BackFlow</td><td>6</td><td></td><td>Backflow in past 35 days, high/low.</td></tr>
+		<tr><td>Consumption</td><td>24</td><td></td><td></td></tr>
+		<tr><td>Unkn3</td><td>2</td><td></td><td></td></tr>
+		<tr><td>Leak</td><td>4</td><td></td><td>Day bins of leak. <a href="https://github.com/bemasher/rtlamr/issues/29#issuecomment-97622287">See issue #29 for more details.</a></td></tr>
+		<tr><td>LeakNow</td><td>2</td><td></td><td>Leak in past 24 hours, high/low.</td></tr>
+	</table>
+</div>

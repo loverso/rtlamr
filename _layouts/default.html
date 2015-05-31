@@ -8,7 +8,7 @@
 
 			{{ content }}
 
-			{% if site.baseurl != '' %}
+			{% if jekyll.environment != 'development' and page.permalink == '/' %}
 			<div class="panel panel-default">
 				<div class="panel-body disqus">
 					{% include disqus.html %}
