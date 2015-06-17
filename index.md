@@ -10,8 +10,7 @@ Utilities often use "smart meters" to optimize their residential meter reading i
 
 This project is a software defined radio receiver for these messages. We make use of an inexpensive rtl-sdr dongle to allow users to non-invasively record and analyze the commodity consumption of their household.
 
-[![Build Status](http://img.shields.io/travis/bemasher/rtlamr.svg?style=flat)](https://travis-ci.org/bemasher/rtlamr)
-[![AGPLv3 License](http://img.shields.io/badge/license-AGPLv3-blue.svg?style=flat)](http://choosealicense.com/licenses/agpl-3.0/)
+[![Build Status](http://img.shields.io/travis/bemasher/rtlamr.svg?style=flat)](https://travis-ci.org/bemasher/rtlamr) [![AGPLv3 License](http://img.shields.io/badge/license-AGPLv3-blue.svg?style=flat)](http://choosealicense.com/licenses/agpl-3.0/)
 
 ### Requirements
  * GoLang >=1.2 (Go build environment setup guide: http://golang.org/doc/code.html)
@@ -22,7 +21,7 @@ This project is a software defined radio receiver for these messages. We make us
 ### Building
 This project requires the package [`github.com/bemasher/rtltcp`](http://godoc.org/github.com/bemasher/rtltcp), which provides a means of controlling and sampling from rtl-sdr dongles via the `rtl_tcp` tool. This package will be automatically downloaded and installed when getting rtlamr. The following command should be all that is required to install rtlamr.
 
-	go get github.com/bemasher/rtlamr
+    go get github.com/bemasher/rtlamr
 
 This will produce the binary `$GOPATH/bin/rtlamr`. For convenience it's common to add `$GOPATH/bin` to the path.
 
@@ -32,6 +31,7 @@ Available command-line flags are as follows:
 ```
 Usage of rtlamr:
   -cpuprofile=: write cpu profile to this file
+  -decimation=1: integer decimation factor, keep every nth sample
   -duration=0: time to run for, 0 for infinite, ex. 1h5m10s
   -fastmag=false: use faster alpha max + beta min magnitude approximation
   -filterid=: display only messages matching an id in a comma-separated list of ids.
@@ -43,7 +43,7 @@ Usage of rtlamr:
   -quiet=false: suppress printing state information at startup
   -samplefile=/dev/null: raw signal dump file
   -single=false: one shot execution
-  -symbollength=73: symbol length in samples, see -help for valid lengths
+  -symbollength=72: symbol length in samples, see -help for valid lengths
 
 rtltcp specific:
   -agcmode=false: enable/disable rtl agc
@@ -74,7 +74,7 @@ $ rtlamr
 If you want to run the spectrum server on a different machine than the receiver you'll want to specify an address to listen on that is accessible from the machine `rtlamr` will run on with the `-a` option for `rtl_tcp` with an address accessible by the system running the receiver.
 
 ### Messages
-Currently both SCM (Standard Consumption Message) and IDM (Interval Data Message) packets can be decoded but are mutually exclusive, you cannot receive both simultaneously. See [Protocol]({{site.baseurl}}/protocol.html) for more details on packet structure.
+Currently both SCM (Standard Consumption Message) and IDM (Interval Data Message) packets can be decoded but are mutually exclusive, you cannot receive both simultaneously. See [RTLAMR: Protocol](http://bemasher.github.io/rtlamr/protocol.html) for more details on packet structure.
 
 There's now experimental support for meters with R900 transmitters!
 
@@ -87,8 +87,6 @@ Currently the only tested meter is the Itron C1SR. However, the protocol is desi
 Check out the table of meters I've been compiling from various internet sources: [ERT Compatible Meters](https://github.com/bemasher/rtlamr/blob/master/meters.md)
 
 If you've got a meter not on the list that you've successfully received messages from, you can submit this info via a form available at the link above.
-
-There's now experimental support for meters with R900 transmitters!
 
 ### Ethics
 _Do not use this for nefarious purposes._ If you do, I don't want to know about it, I am not and will not be responsible for your lack of common decency and/or foresight. However, if you find a clever non-evil use for this, by all means, share.
