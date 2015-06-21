@@ -72,10 +72,20 @@ func (p Parser) Parse(indices []int) (msgs []parse.Message) {
 			continue
 		}
 
+		if data.Bytes[4] == 0x5C {
+			continue
+		}
+
+		if data.Bytes[5] == 0xC6 {
+			continue
+		}
+
 		// // If the checksum fails, bail.
 		// if residue := p.Checksum(data.Bytes[3:]); residue != p.Residue {
 		// 	continue
 		// }
+
+		fmt.Printf("%02X\n", pkt)
 
 		var scm SCMPlus
 		scm.Preamble = binary.BigEndian.Uint32(data.Bytes[0:4]) >> 8
@@ -123,13 +133,13 @@ func (scm SCMPlus) MeterType() uint8 {
 func (scm SCMPlus) String() string {
 	var fields []string
 
-	fields = append(fields, fmt.Sprintf("Preamble: 0x%02X", scm.Preamble))
-	fields = append(fields, fmt.Sprintf("PacketTypeID: 0x%02X", scm.PacketTypeID))
-	fields = append(fields, fmt.Sprintf("EndpointType: %02d", scm.EndpointType))
-	fields = append(fields, fmt.Sprintf("EndpointID: %10d", scm.EndpointID))
-	fields = append(fields, fmt.Sprintf("Consumption: %10d", scm.Consumption))
-	fields = append(fields, fmt.Sprintf("Tamper: 0x%04X", scm.Tamper))
-	fields = append(fields, fmt.Sprintf("PacketCRC: 0x%04X", scm.PacketCRC))
+	fields = append(fields, fmt.Sprintf("Preamble:0x%02X", scm.Preamble))
+	fields = append(fields, fmt.Sprintf("PacketTypeID:0x%02X", scm.PacketTypeID))
+	fields = append(fields, fmt.Sprintf("EndpointType:%02d", scm.EndpointType))
+	fields = append(fields, fmt.Sprintf("EndpointID:%10d", scm.EndpointID))
+	fields = append(fields, fmt.Sprintf("Consumption:%10d", scm.Consumption))
+	fields = append(fields, fmt.Sprintf("Tamper:0x%04X", scm.Tamper))
+	fields = append(fields, fmt.Sprintf("PacketCRC:0x%04X", scm.PacketCRC))
 
 	return "{" + strings.Join(fields, " ") + "}"
 }
