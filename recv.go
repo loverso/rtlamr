@@ -32,6 +32,7 @@ import (
 	"github.com/bemasher/rtlamr/parse"
 	"github.com/bemasher/rtlamr/r900"
 	"github.com/bemasher/rtlamr/scm"
+	"github.com/bemasher/rtlamr/scmplus"
 	"github.com/bemasher/rtltcp"
 )
 
@@ -50,6 +51,8 @@ func (rcvr *Receiver) NewReceiver() {
 		rcvr.p = idm.NewParser(*symbolLength, *decimation, *fastMag)
 	case "r900":
 		rcvr.p = r900.NewParser(*symbolLength, *decimation, *fastMag)
+	case "scm+":
+		rcvr.p = scmplus.NewParser(*symbolLength, *decimation, *fastMag)
 	default:
 		log.Fatalf("Invalid message type: %q\n", *msgType)
 	}
